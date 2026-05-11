@@ -71,11 +71,23 @@ Use this one-line script to deploy:
 bash ./start_docker.sh
 ```
 
-### Ports
-
 ### API Docs
 
 APIs are prefixed with `/api`. Swagger/OpenAPI documentation is available at `/docs`
+
+## LLM Model Configuration
+
+Place model configuration JSON files under `config/llm_models/`. Example:
+
+```json
+{
+  "api_key": "sk-xxx",
+  "model": "gpt-4.1",
+  "base_url": "https://api.openai.com/v1"
+}
+```
+
+The Config loader scans `config/llm_models/*.json` at startup. Each file name becomes the model alias you can reference throughout the application.
 
 ## Why GUIDE? 🤔
 
@@ -357,55 +369,6 @@ The copilot can:
 - Delegate long-running tasks to specialized agents
 - Translate expert instructions into executable operations
 - Help revise search strategies, screening criteria, or evidence tables
-
-## Interface Screenshots 📷
-
-The following supplementary figures illustrate key workflow interfaces and human-AI interaction points in GUIDE.
-
-### Search Strategy Refinement
-
-![Supplementary Fig. 1: Search strategy generation and expert refinement](images\pic1.png)
-
-### Article Screening
-
-![Supplementary Fig. 2: Title/abstract and full-text screening interface](images\pic2.png)
-
-### Outcome Extraction and Classification
-
-### GRADE Table Aggregation & Assessment
-
-### Recommendation Synthesis
-
-## Human-AI Collaboration Model
-
-GUIDE supports two complementary modes of expert involvement:
-
-### Condition-Triggered Review
-
-The AI reviewer monitors predefined signals and triggers expert review when needed, such as:
-
-- Disagreement between parallel agents
-- Large retrieval-volume discrepancy
-- Low overlap between search outputs
-- Conflicting screening decisions
-- Inconsistent extracted values
-- Divergent GRADE ratings
-
-This allows GUIDE to combine automation efficiency with clinical accountability.
-
-## LLM Model Configuration
-
-Place model configuration JSON files under `config/llm_models/`. Example:
-
-```json
-{
-  "api_key": "sk-xxx",
-  "model": "gpt-4.1",
-  "base_url": "https://api.openai.com/v1"
-}
-```
-
-The Config loader scans `config/llm_models/*.json` at startup. Each file name becomes the model alias you can reference throughout the application.
 
 ## License 📄
 
