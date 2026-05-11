@@ -39,6 +39,9 @@ It is **NOT** intended to replace:
 
 ### Prerequisites ⚙️🔧
 
+* The System is developed and tested on a MacBook Pro 2024 M3 chip, performance may be restricted on different machines.
+* The following environment configuration is mandatory.
+
 - MacOS or Linux
 - Python 3.9+
 - npm (For Frontend)
@@ -252,7 +255,7 @@ When information is missing, unclear, or not applicable, GUIDE marks it explicit
 
 The system supports text and table extraction from PDFs and can provide source-position markers to help experts rapidly verify extracted evidence.
 
-### 6. GRADE-Based Effect Estimate and Quality Assessment
+### 6. GRADE-Based Effect Estimate and Quality Assessment 💯📈
 
 GUIDE supports GRADE-ready evidence synthesis by selecting an appropriate effect-estimate approach for each outcome before certainty assessment.
 
@@ -297,7 +300,7 @@ GUIDE then supports GRADE-oriented certainty assessment across key domains:
 
 AI agents can perform preliminary effect-estimate synthesis and grading, while expert review remains central for judgment-intensive domains and final certainty decisions.
 
-### 7. Body of Evidence Assembly
+### 7. Body-of-Evidence Assembly 
 
 GUIDE organizes extracted study-level evidence into structured bodies of evidence for each clinical outcome.
 
