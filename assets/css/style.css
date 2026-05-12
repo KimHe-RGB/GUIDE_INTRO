@@ -1,0 +1,209 @@
+:root {
+  --bg: #f4efe4;
+  --bg-accent: #e4dccb;
+  --ink: #1f1f19;
+  --muted: #5b5b4c;
+  --line: rgba(31, 31, 25, 0.14);
+  --card: rgba(255, 251, 245, 0.86);
+  --brand: #0b6e4f;
+  --brand-soft: #d9efe7;
+  --shadow: 0 24px 80px rgba(38, 33, 20, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(11, 110, 79, 0.10), transparent 28%),
+    radial-gradient(circle at top right, rgba(169, 103, 27, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--bg) 0%, #fbf7ef 100%);
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.7;
+}
+
+.page-shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hero {
+  padding: 4rem 0 2rem;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 1rem 0 0;
+  font-family: "IBM Plex Serif", serif;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.hero__description {
+  max-width: 44rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.content-card {
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.content-card h1,
+.content-card h2,
+.content-card h3,
+.content-card h4 {
+  font-family: "IBM Plex Serif", serif;
+  line-height: 1.15;
+  scroll-margin-top: 1.5rem;
+}
+
+.content-card h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.content-card h2 {
+  margin-top: 2.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.content-card a {
+  color: var(--brand);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.content-card p code,
+.content-card li code,
+.content-card td code,
+.content-card th code {
+  padding: 0.12rem 0.38rem;
+  border-radius: 0.45rem;
+  background: var(--brand-soft);
+  font-size: 0.94em;
+}
+
+.content-card pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #171711;
+  color: #f9f6ef;
+}
+
+.content-card pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.content-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.content-card .figure-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.4rem 0 2rem;
+}
+
+.content-card .figure-card {
+  flex: 1 1 280px;
+  min-width: min(100%, 280px);
+  margin: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 10px 30px rgba(38, 33, 20, 0.08);
+}
+
+.content-card .figure-card img {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(31, 31, 25, 0.08);
+}
+
+.content-card .figure-card figcaption {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.content-card .figure-card strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+}
+
+.content-card blockquote {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--brand);
+  background: rgba(11, 110, 79, 0.08);
+}
+
+.content-card table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.content-card th,
+.content-card td {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: min(100% - 1rem, 1100px);
+    padding-top: 1rem;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .content-card {
+    border-radius: 22px;
+  }
+
+  .content-card .figure-card {
+    flex-basis: 100%;
+  }
+}

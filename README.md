@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/GUIDE/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
 [English](README.md)
 
@@ -39,8 +39,8 @@ It is **NOT** intended to replace:
 
 ### Prerequisites ⚙️🔧
 
-* The System is developed and tested on a MacBook Pro 2024 M3 chip, performance may be restricted on different machines.
-* The following environment configuration is mandatory.
+- The System is developed and tested on a MacBook Pro 2024 M3 chip, performance may be restricted on different machines.
+- The following environment configuration is mandatory.
 
 - MacOS or Linux
 - Python 3.9+
@@ -137,6 +137,8 @@ Evidence-to-Recommendation Synthesis
 
 ## Introduction to Each Step
 
+<!-- markdownlint-disable MD033 -->
+
 ### 1. Clinical Question to Protocol 🙋 ➡️ 🗺️
 
 GUIDE starts from decomposing an arbitary clinical questions into **PICO elements**, and generates a structured **Review Protocol** table, which serves as the key controlling paradigm for subsequent steps.
@@ -157,6 +159,13 @@ The **Review Protocol** covers the following terms:
 
 To enhance human-computer-interaction, all fields mentioned above are editable by human experts to control downstream evidence retrieval and screening, outcome extraction, etc.
 
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/1-Clinical%20Question%20to%20Protocol.jpg" alt="Clinical question to protocol interface">
+            <figcaption><strong>Protocol Generation</strong> A free-text clinical question is transformed into editable PICO fields and a structured review protocol.</figcaption>
+      </figure>
+</div>
+
 ### 2. Search Strategy Generation 🗺️ ➡️ 🔍
 
 Generate database-specific search strategies from **Review Protocol**, including:
@@ -167,6 +176,13 @@ Generate database-specific search strategies from **Review Protocol**, including
 - Study-design filters when needed
 
 GUIDE supports dual-agent search strategy generation, where two LLM agents with different LLM configurations independently generate search strategies. AI reviewer compares retrieval results and flags potential unreliable searches, such as large discrepancies in retrieval volume or low overlap between search outputs.
+
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/2-Search%20Strategy%20Generation.jpg" alt="Dual-agent search strategy generation interface">
+            <figcaption><strong>Dual search strategy generation.</strong> Dual agents draft database-specific retrieval logic</figcaption>
+      </figure>
+</div>
 
 ### 3. Literature Retrieval 🔍 ➡️ 📚📚📚
 
@@ -186,6 +202,13 @@ Supported sources include:
 - **Scopus** via Elsevier API
 - Optional scholarly enrichment through **OpenAlex**
 
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/3-Literature%20Retrieval.jpg" alt="Literature retrieval and screening queue interface">
+            <figcaption><strong>Retrieved Articles</strong> Search results are collected into a working set that supports bulk review, export, and staged for batch screening</figcaption>
+      </figure>
+</div>
+
 ### 4. Two-Stage Article Screening 📚📚📚 ➡️ ✨📚✨
 
 GUIDE supports sequential evidence screening:
@@ -201,6 +224,30 @@ Screening agents evaluate articles against the Protocol-derived inclusion and ex
 - Disagreement flags (only in the second screening stage)
 
 In dual-agent mode, two independent agents screen the same evidence pool. When disagreement occurs, the AI reviewer triggers expert adjudication.
+
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/4-Title%20and%20abstract%20screening_1.jpg" alt="Title and abstract screening workspace">
+            <figcaption><strong>Title-Abstract Screening</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/4-Title%20and%20abstract%20screening_2.jpg" alt="Screening reason popover">
+            <figcaption><strong>Agent Rationale Review</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/4-Full-text%20eligibility%20assessment_1.jpg" alt="Full-text screening workspace">
+            <figcaption><strong>Get PDF files forFull-text Screening</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/4-Full-text%20eligibility%20assessment_3.jpg" alt="Full-text Extraction">
+            <figcaption><strong>Batch Upload PDF and Extract Full-text with OCR</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/4-Full-text%20eligibility%20assessment_2.jpg" alt="Batch PDF upload and article assignment modal">
+            <figcaption><strong>Full-text Screening Results</strong></figcaption>
+      </figure>
+
+</div>
 
 ### 5. Full-Text Evidence Extraction 📚 ➡️ 📖
 
@@ -255,6 +302,21 @@ When information is missing, unclear, or not applicable, GUIDE marks it explicit
 
 The system supports text and table extraction from PDFs and can provide source-position markers to help experts rapidly verify extracted evidence.
 
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/5-Full-Text%20Evidence%20Extraction_1.jpg" alt="Data extraction tables">
+            <figcaption><strong>Extracted Tables from each included articles</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/5-Full-Text%20Evidence%20Extraction_2.jpg" alt="Clinical Evidence Summary Table">
+            <figcaption><strong>Clinical Evidence Summary Table</strong></figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/5-Full-Text%20Evidence%20Extraction_3.jpg" alt="Outcomes discrepency report">
+            <figcaption><strong>Show dual-agent discrepency in extracted outcome fields for human edition</strong></figcaption>
+      </figure>
+</div>
+
 ### 6. GRADE-Based Effect Estimate and Quality Assessment 💯📈
 
 GUIDE supports GRADE-ready evidence synthesis by selecting an appropriate effect-estimate approach for each outcome before certainty assessment.
@@ -300,7 +362,18 @@ GUIDE then supports GRADE-oriented certainty assessment across key domains:
 
 AI agents can perform preliminary effect-estimate synthesis and grading, while expert review remains central for judgment-intensive domains and final certainty decisions.
 
-### 7. Body-of-Evidence Assembly 
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/6-GRADE-Based%20Effect%20Estimate%20and%20Quality%20Assessment_1.jpg" alt="GRADE grouping and meta-analysis preparation view">
+            <figcaption><strong>Automatic & Manual grouping for Meta analysis preparation</strong> </figcaption>
+      </figure>
+      <figure class="figure-card">
+            <img src="figures/6-GRADE-Based%20Effect%20Estimate%20and%20Quality%20Assessment_2.jpg" alt="Meta-analysis result and certainty summary">
+            <figcaption><strong>Pooled results and certainty summary.</strong> Meta-analysis outputs are presented with effect estimates, inconsistency, and a GRADE-ready narrative interpretation.</figcaption>
+      </figure>
+</div>
+
+### 7. Body-of-Evidence Assembly
 
 GUIDE organizes extracted study-level evidence into structured bodies of evidence for each clinical outcome.
 
@@ -313,21 +386,7 @@ This includes:
 - Certainty-of-evidence profiles
 - Evidence summaries ready for recommendation drafting
 
-### 8. Evidence-to-Recommendation Synthesis
-
-GUIDE supports structured Evidence-to-Recommendation synthesis by integrating:
-
-- Benefits and harms
-- Certainty of evidence
-- Outcome importance
-- Clinical applicability
-- Cost and resource considerations
-- Patient values and preferences
-- Implementation considerations
-
-This module helps bridge the gap between evidence appraisal and clinically interpretable recommendations.
-
-### 9. Delphi-Style Multi-Agent Consensus
+### 8. Delphi-Style Multi-Agent Consensus
 
 GUIDE includes a multi-agent virtual consensus module that simulates a guideline committee.
 
@@ -343,6 +402,34 @@ Supported roles may include:
 - Health Policy and Implementation Expert
 
 Each AI panelist provides an independent role-specific assessment. A committee chair agent synthesizes agreement, disagreement, and unresolved issues. Multiple deliberation rounds can be conducted until consensus criteria are met or expert intervention is required.
+
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/8-Delphi-Style%20Multi-Agent%20Consensus.jpg" alt="Delphi-style multi-agent consensus discussion">
+            <figcaption><strong>Virtual committee deliberation.</strong> Role-specific panelists debate recommendation wording and certainty until the committee converges on a consensus.</figcaption>
+      </figure>
+</div>
+
+### 9. Evidence-to-Recommendation Synthesis
+
+GUIDE supports structured Evidence-to-Recommendation synthesis by integrating:
+
+- Benefits and harms
+- Certainty of evidence
+- Outcome importance
+- Clinical applicability
+- Cost and resource considerations
+- Patient values and preferences
+- Implementation considerations
+
+This module helps bridge the gap between evidence appraisal and clinically interpretable recommendations.
+
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/9-Evidence-to-Recommendation%20Synthesis.jpg" alt="Evidence-to-recommendation synthesis report">
+            <figcaption><strong>Recommendation report synthesis.</strong> The committee output is consolidated into a structured Evidence-to-Recommendation report with rationale, tradeoffs, and implementation framing.</figcaption>
+      </figure>
+</div>
 
 ### 10. Human-in-the-Loop Reviewer Mechanism
 
@@ -360,11 +447,11 @@ The AI reviewer can flag:
 
 This design allows experts to focus on high-value arbitration rather than continuously monitoring every automated step.
 
-### 11. AI Copilot Interface
+### 11. AI Assistant Interface
 
 A LangChain-based conversational agent orchestrates the workflow through natural language.
 
-The copilot can:
+The Assistant can:
 
 - Call internal workflow tools
 - Maintain context across sessions
@@ -373,6 +460,19 @@ The copilot can:
 - Translate expert instructions into executable operations
 - Help revise search strategies, screening criteria, or evidence tables
 
+<div class="figure-grid">
+      <figure class="figure-card">
+            <img src="figures/11-AI%20Assistant%20Interface.jpg" alt="AI assistant interface for workflow orchestration">
+            <figcaption><strong>Conversational workflow control.</strong> The assistant translates natural-language instructions into tool-backed workflow actions such as PICO extraction and strategy refinement.</figcaption>
+      </figure>
+</div>
+
+<!-- markdownlint-enable MD033 -->
+
 ## License 📄
 
 MIT License
+
+## Contributing
+
+Pull requests are welcome. For substantive changes, open an issue first to discuss the proposed update and keep the README, figures, and deployment workflow aligned with the published site.
