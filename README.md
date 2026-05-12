@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/GUIDE/pulls)
 
 [English](README.md)
 
@@ -39,9 +39,6 @@ It is **NOT** intended to replace:
 
 ### Prerequisites ⚙️🔧
 
-- The System is developed and tested on a MacBook Pro 2024 M3 chip, performance may be restricted on different machines.
-- The following environment configuration is mandatory.
-
 - MacOS or Linux
 - Python 3.9+
 - npm (For Frontend)
@@ -52,88 +49,27 @@ It is **NOT** intended to replace:
 - **guide_web**
   - Make sure the frontend project is placed under the project root folder
 
-### Start as Development
+### First-Time Machine Setup
 
-Create a conda environment first, this may take a long time when you first run:
-
-```bash
-conda env create -f environment.yml
-```
-
-After you have conda environment setup, use this one-line script to deploy:
+For a first-time user on Linux/macOS machine, run the bootstrap script from the project root:
 
 ```bash
+bash ./run_bootstrap_script.sh
+# After this succeeded, test run in development mode:
 bash ./start_development.sh
 ```
 
-### Start as Production (Require Docker 🐳)
+This installs the local development prerequisites used by this repository:
 
-Use this one-line script to deploy:
+- git, curl, wget, build tools
+- Miniconda
+- Node.js 20 via nvm
+- Redis
+- R plus the local plumber/meta-analysis packages
+- the `auto_evidence` Conda environment from `environment.yml`
+- frontend dependencies via `npm install` when `node_modules` is missing
 
-```bash
-bash ./start_docker.sh
-```
-
-### API Docs
-
-APIs are prefixed with `/api`. Swagger/OpenAPI documentation is available at `/docs`
-
-## LLM Model Configuration
-
-Place model configuration JSON files under `config/llm_models/`. Example:
-
-```json
-{
-  "api_key": "sk-xxx",
-  "model": "gpt-4.1",
-  "base_url": "https://api.openai.com/v1"
-}
-```
-
-The Config loader scans `config/llm_models/*.json` at startup. Each file name becomes the model alias you can reference throughout the application.
-
-## Why GUIDE? 🤔
-
-Clinical practice guidelines must remain timely, trustworthy, and clinically accountable. However, conventional guideline development and updating workflows are often slowed by the rapid growth of biomedical literature, complex evidence appraisal, and the need for expert consensus.
-
-GUIDE addresses these challenges through a structured human-AI collaboration model:
-
-- AI agents accelerate evidence retrieval, screening, extraction, and preliminary synthesis.
-- AI reviewer monitor uncertainty, disagreement, and inconsistent outputs.
-- Experts intervene proactively or when triggered by predefined quality-control signals.
-- A Delphi-style multi-agent panel supports transparent recommendation drafting and consensus formation.
-
-## Workflow Overview
-
-GUIDE implements a seven-steps clinical guideline workflow, using a multi-agent workflow system:
-
-1. Clinical question decomposition
-2. PICO construction and expert verification
-3. Literature search strategy generation and retrieval
-4. Title/abstract and full-text screening
-5. Data extraction and body-of-evidence assembly
-6. GRADE-based evidence quality assessment
-7. Evidence-to-Recommendation synthesis and Delphi-style consensus
-
-```text
-Clinical Question
-      ↓
-Protocol Agent + Expert Verification
-      ↓
-Search Strategy Generation Agents 
-      ↓
-Title/Abstract Screening Agents
-      ↓
-Full-Text Screening Agents + Expert Adjudication
-      ↓
-Data Extraction Agents + Source Verification
-      ↓
-GRADE Quality Assessment Agents + Expert Audit
-      ↓
-Delphi-Style Multi-Agent Consensus
-      ↓
-Evidence-to-Recommendation Synthesis
-```
+The development startup flow does not use Docker. `start_development.sh` starts the local R plumber service on `127.0.0.1:8102` and points the backend at that URL.
 
 ## Introduction to Each Step
 
@@ -472,7 +408,3 @@ The Assistant can:
 ## License 📄
 
 MIT License
-
-## Contributing
-
-Pull requests are welcome. For substantive changes, open an issue first to discuss the proposed update and keep the README, figures, and deployment workflow aligned with the published site.
