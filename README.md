@@ -37,6 +37,11 @@ It is **NOT** intended to replace:
 
 ## Quick Start 🚀
 
+The recommended machine for deployment are:
+
+- A Virtual Machine with Linux Ubuntu 22.04
+- A Macbook Pro
+
 ### Prerequisites ⚙️🔧
 
 - MacOS or Linux
@@ -46,8 +51,10 @@ It is **NOT** intended to replace:
 - conda (For development deployment)
 - Docker & Docker Compose (For production deployment)
 - API key for LLM Models
+  - The LLM model keys should be place properly in `/config` folder
 - **guide_web**
   - Make sure the frontend project is placed under the project root folder
+  - Frontend dependencies via `npm install` when `node_modules` is missing
 
 ### First-Time Machine Setup
 
@@ -70,6 +77,17 @@ This installs the local development prerequisites used by this repository:
 - frontend dependencies via `npm install` when `node_modules` is missing
 
 The development startup flow does not use Docker. `start_development.sh` starts the local R plumber service on `127.0.0.1:8102` and points the backend at that URL.
+
+### Start-up in production mode
+
+Deploying with production mode would require:
+
+- Linux Ubuntu 22.04 Virtual Machine
+- Docker + Docker Compose
+
+```bash
+bash start_docker.sh
+```
 
 ## Introduction to Each Step
 
@@ -135,7 +153,6 @@ Execute literature searches through biomedical databases and retrieve:
 Supported sources include:
 
 - **PubMed** via NCBI Entrez / E-utilities
-- **Scopus** via Elsevier API
 - Optional scholarly enrichment through **OpenAlex**
 
 <div class="figure-grid">
