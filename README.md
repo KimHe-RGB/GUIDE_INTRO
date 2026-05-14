@@ -5,6 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/GUIDE/pulls)
 
 [English](README.md)
+[Site](https://kimhe-rgb.github.io/GUIDE_INTRO/)
 
 ## What is GUIDE 🗺️
 
