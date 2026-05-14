@@ -174,7 +174,7 @@ Screening agents evaluate articles against the Protocol-derived inclusion and ex
 - Include / exclude decisions
 - Rationale
 - Confidence levels
-- Disagreement flags (only in the second screening stage)
+- Disagreement flags
 
 In dual-agent mode, two independent agents screen the same evidence pool. When disagreement occurs, the AI reviewer triggers expert adjudication.
 
@@ -251,9 +251,7 @@ GUIDE also extracts numerical results into structured tables according to outcom
 - P values
 - Other study-reported statistics
 
-When information is missing, unclear, or not applicable, GUIDE marks it explicitly to support transparent expert review.
-
-The system supports text and table extraction from PDFs and can provide source-position markers to help experts rapidly verify extracted evidence.
+GUIDE supports text and table extraction from PDFs. When informationis missing, unclear, or not applicable, system marks it explicitly to support transparent expert review.
 
 <div class="figure-grid">
       <figure class="figure-card">
