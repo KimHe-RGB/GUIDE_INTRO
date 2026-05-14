@@ -152,8 +152,11 @@ Execute literature searches through biomedical databases and retrieve:
 
 Supported sources include:
 
-- **PubMed** via NCBI Entrez / E-utilities
-- Optional scholarly enrichment through **OpenAlex**
+- For Large-scale article retrieval:
+  - **PubMed** via NCBI Entrez / E-utilities
+  - **Scopus** via Elsevier API
+- For Exact Article PDF retrieval:
+  - Optional scholarly enrichment through **OpenAlex, Semantic Scholar, and Crossref**
 
 <div class="figure-grid">
       <figure class="figure-card">
