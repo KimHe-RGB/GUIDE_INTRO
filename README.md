@@ -89,6 +89,13 @@ Deploying with production mode would require:
 bash start_docker.sh
 ```
 
+## Notes
+
+We are not making the source code of GUIDE publicly available at this stage owing to the safety implications of unmonitored use of such a system in medical guideline workflows. Inappropriate deployment outside expert-supervised settings could lead to misuse in evidence appraisal, recommendation formulation, or clinical decision-support contexts beyond the validated scope of this study.
+
+<!-- markdownlint-disable-next-line MD033 -->
+<h3 style="color: #b42318; background: #fef3f2; border: 1px solid #fecdca; border-radius: 12px; padding: 0.9rem 1rem;">For peer review only, we have provided the source code, testing dataset, and demonstration video as supplementary materials for the editors and expert reviewers in the submission system.</h3>
+
 ## Introduction to Each Step
 
 <!-- markdownlint-disable MD033 -->
