@@ -5,11 +5,13 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/GUIDE/pulls)
 
 [English](README.md)
-[Site](https://kimhe-rgb.github.io/GUIDE_INTRO/)
+
+<!-- markdownlint-disable-next-line MD033 -->
+<p><a href="https://kimhe-rgb.github.io/GUIDE_INTRO/" style="font-size: 1.5rem; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em;">Read-Friendly Website</a></p>
 
 ## What is GUIDE 🗺️
 
-GUIDE (previous name: AutoEvidence) is an AI-powered, human-in-the-loop clinical guideline generation interface.
+GUIDE (Guideline Update Intelligence Decision Engine) is an AI-powered, human-in-the-loop clinical guideline generation interface.
 
 ### GUIDE Invents AI Generation of Clinical Guideline ✨✨🤖🧠✨✨
 
