@@ -6,8 +6,7 @@
 
 [English](README.md)
 
-<!-- markdownlint-disable-next-line MD033 -->
-<p><a href="https://kimhe-rgb.github.io/GUIDE_INTRO/" style="font-size: 1.5rem; font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em;">Read-Friendly Website</a></p>
+### [Read-Friendly Website](https://kimhe-rgb.github.io/GUIDE_INTRO/)
 
 ## What is GUIDE 🗺️
 
