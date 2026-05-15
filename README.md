@@ -431,7 +431,3 @@ The Assistant can:
 </div>
 
 <!-- markdownlint-enable MD033 -->
-
-## License 📄
-
-MIT License
